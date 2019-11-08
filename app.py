@@ -11,7 +11,7 @@ from sqlalchemy import create_engine
 user = os.environ.get('DB_USER')
 print(user)
 passwd = os.environ.get('DB_USER_PASSWORD')
-host = os.environ.get('DB_HOST')
+host = 'nps-demo-instance.cnqjmpshjsl3.us-east-1.rds.amazonaws.com'
 db_app = os.environ.get('DB_APP_PYTHON')
 
 engine = create_engine('postgresql://' + user + ':' + passwd + '@' + host + '/' + db_app)
