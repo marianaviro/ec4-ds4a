@@ -9,6 +9,7 @@ import os
 from sqlalchemy import create_engine
 
 user = os.environ.get('DB_USER')
+print(user)
 passwd = os.environ.get('DB_USER_PASSWORD')
 host = os.environ.get('DB_HOST')
 db_app = os.environ.get('DB_APP_PYTHON')
