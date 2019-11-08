@@ -9,16 +9,11 @@ import os
 from sqlalchemy import create_engine
 
 user = str(os.environ.get('DB_USER'))
-print(user)
 passwd = str(os.environ.get('DB_USER_PASSWORD'))
-print(passwd)
 host = 'nps-demo-instance.cnqjmpshjsl3.us-east-1.rds.amazonaws.com'
-print(host)
 db_app = str(os.environ.get('DB_APP_PYTHON'))
-print(db_app)
 
 eng = str('postgresql://' + user + ':' + passwd + '@' + host + '/' + db_app)
-print(eng)
 
 engine = create_engine(eng)
 df = pd.read_sql("SELECT * from trades", engine.connect(), parse_dates=('Entry time',))
