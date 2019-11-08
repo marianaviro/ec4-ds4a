@@ -8,13 +8,19 @@ import os
 
 from sqlalchemy import create_engine
 
-user = os.environ.get('DB_USER')
+user = str(os.environ.get('DB_USER'))
 print(user)
-passwd = os.environ.get('DB_USER_PASSWORD')
+passwd = str(os.environ.get('DB_USER_PASSWORD'))
+print(passwd)
 host = 'nps-demo-instance.cnqjmpshjsl3.us-east-1.rds.amazonaws.com'
-db_app = os.environ.get('DB_APP_PYTHON')
+print(host)
+db_app = str(os.environ.get('DB_APP_PYTHON'))
+print(db_app)
 
-engine = create_engine('postgresql://' + user + ':' + passwd + '@' + host + '/' + db_app)
+eng = str('postgresql://' + user + ':' + passwd + '@' + host + '/' + db_app)
+print(eng)
+
+engine = create_engine(eng)
 df = pd.read_sql("SELECT * from trades", engine.connect(), parse_dates=('Entry time',))
 
 #df = pd.read_csv('aggr.csv', parse_dates = ['Entry time'])
